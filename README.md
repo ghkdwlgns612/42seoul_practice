@@ -22,4 +22,6 @@ Exercise 03 : Connect me!
 
 Exercise 04 : midLS
 
-- 생성일 순서로 ~ : 
+- 생성일 순서로 ~ : ls -t
+- 콤마 생성 : ls -m
+- 뒤에 역슬래싀포함 : ls -p
