@@ -62,3 +62,22 @@ Exercise 08 : clean
 - -o : 연결해서 조건을 붙임
 - delete : 지정된 파일들을 삭제.
 - find . -name "*~" -delete -print -o -name "*#" -delete -print -o -name "#*" -delete -print
+
+
+Exercise 09 : 
+
+- 41 string 42 42seoul
+ (offset type test message)
+
+위의 문장은 FN개념이다.(whether the file contains certain “magic patterns”)
+
+OFFSET에 있는 특정 BYTE의 값을 비교한다.(a particular offset in the file with a byte value)
+
+비교값은 숫자 또는 문자이다.(a string or a numeric value)
+
+>.예시
+ 0                 string       '
+ MZ>0x18             leshort      >0x3f
+ >>(0x3c.l)        string       PE\0\0 PE executable (MS-Windows)
+
+뒤에 file을 붙이는 이유는 뭘까?
