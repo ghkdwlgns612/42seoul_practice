@@ -8,19 +8,24 @@ Exercise 01 : testShell00
 
 - touch -t 202106012342 [파일명]
 - chmod 4(r--) 5(r-x) 5(r-x) user group others
+- mkfile 40 하면 40바이트 파일 생성
+- tar -cf(create file)
 
 
 Exercise 02 : Oh yeah, mooore...
 
-- soft link : ln -s [소스파일] [새로만들파일] --> 바로가기랑 비슷함. 소스 파일 내용은 바뀌지 않음.
+- soft link : ln -s [소스파일] [새로만들파일] --> 바로가기 아이콘 생성. 소스 파일 내용은 바뀌지 않음.
 - hard link : ln [소스파일] [새로만들파일] --> 이건 내용도 다 바뀐다.
 - d- : directory
 - d------ 2 : link의 갯수
 
 
+
 Exercise 03 : Connect me!
 
 - kinit(키 생성), klist(키 출력) 
+- kinit -p your_principal
+
 
 
 Exercise 04 : midLS
@@ -29,6 +34,7 @@ Exercise 04 : midLS
 - 콤마 생성 : ls -m
 - 뒤에 역슬래싀포함 : ls -p
 
+U를 왜 넣었을까?
 
 Exercise 05 : GIT commit
 
@@ -49,7 +55,7 @@ Exercise 06 : gitignore
 
 Exercise 07 : diff
 
-
+- patch -o [source] [diff] 파일명
 - 주어진 a 와 sw.diff파일로 b파일을 추적.
 - patch를 이용하여 patch a sw.diff 명령어를 주면 a file에 b의 내용이 생성됨.
 
