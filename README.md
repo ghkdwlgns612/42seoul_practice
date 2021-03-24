@@ -61,6 +61,4 @@ Exercise 08 : clean
 - -name "[찾을것]" : 조건에 맞는 파일이름 찾기.
 - -o : 연결해서 조건을 붙임
 - delete : 지정된 파일들을 삭제.
-find ./ -name '*~' -delete -print -o -name '*#' -delete -print -o -name '#*' -delete -print
-
-
+- find . -name "*~" -delete -print -o -name "*#" -delete -print -o -name "#*" -delete -print
