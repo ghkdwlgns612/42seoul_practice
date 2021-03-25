@@ -83,7 +83,7 @@ OFFSET에 있는 특정 BYTE의 값을 비교한다.(a particular offset in the 
 
 >.예시
  0                 string       '
- MZ>0x18             leshort      >0x3f
+ MZ>0x18            leshort      >0x3f
  >>(0x3c.l)        string       PE\0\0 PE executable (MS-Windows)
 
 뒤에 file을 붙이는 이유는 뭘까?
