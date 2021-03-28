@@ -1,5 +1,5 @@
-Credentials cache: API:0F6B52C4-A631-446E-B40F-29BB50C2F8A8
+Credentials cache: API:4501E369-03C1-498B-9168-7CBCD1FAC7AD
         Principal: jihuhwan@42SEOUL.KR
 
   Issued                Expires               Principal
-Mar 23 21:40:03 2021  Mar 24 07:39:58 2021  krbtgt/42SEOUL.KR@42SEOUL.KR
+Mar 25 12:59:41 2021  Mar 25 22:59:23 2021  krbtgt/42SEOUL.KR@42SEOUL.KR
