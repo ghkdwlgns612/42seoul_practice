@@ -15,10 +15,10 @@
 void	ft_print(int nb)
 {
 	int mod;
-	int front;
+	char front;
 
 	mod = 0;
-	front = 0;
+	front = 'a';
 	nb = (nb) / 10;
 	if (nb >= 10)
 	{
@@ -29,7 +29,6 @@ void	ft_print(int nb)
 		front = nb + '0';
 		write(1, &front, 1);
 	}
-	write(1, &mod, 1);
 }
 
 void	ft_except(void)
