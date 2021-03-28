@@ -81,14 +81,11 @@ OFFSET에 있는 특정 BYTE의 값을 비교한다.(a particular offset in the 
 
 비교값은 숫자 또는 문자이다.(a string or a numeric value)
 
->.예시
- 0                 string       '
- MZ>0x18            leshort      >0x3f
- >>(0x3c.l)        string       PE\0\0 PE executable (MS-Windows)
 실행문 : file -m [magic_file] [source_file]
 
-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
+
+ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
 
 Exercise 01
 
