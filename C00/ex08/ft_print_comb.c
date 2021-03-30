@@ -1,63 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putbr.c                                         :+:      :+:    :+:   */
+/*   ft_print_comb.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 22:30:58 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/03/30 13:25:14 by jihuhwan         ###   ########.fr       */
+/*   Updated: 2021/03/30 14:17:57 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print(int nb)
-{
-	char mod;
+char	g_buf[10];
 
-	mod = (nb) % 10 + '0';
-	nb = (nb) / 10;
-	if (nb >= 10)
+void	ft_solve(int n, int index, int value)
+{
+	if (index == n)
 	{
-		ft_print(nb);
-		write(1, &mod, 1);
+		write(1, g_buf, n);
+		if (g_buf[0] != 10 - n + '0')
+			write(1, ", ", 2);
+		return ;
 	}
-	else if (nb >= 0 && nb <= 9)
+	while (value <= 10 - n + index)
 	{
-		write(1, &mod, 1);
-	}
-	else
-	{
-		nb = nb + '0';
-		write(1, &nb, 1);
-		write(1, &mod, 1);
+		g_buf[index] = value++ + '0';
+		ft_solve(n, index + 1, value);
 	}
 }
 
-void	ft_except(void)
+void	ft_print_combn(int n)
 {
-	write(1, "-", 1);
-	write(1, "2147483648", 10);
-}
+	int value;
 
-void	ft_putnbr(int nb)
-{
-	if (nb < 0)
+	value = 0;
+	while (value <= 10 - n)
 	{
-		if (nb == -2147483648)
-		{
-			ft_except();
-		}
-		else
-		{
-			write(1, "-", 1);
-			nb = nb * (-1);
-			ft_print(nb);
-		}
-	}
-	else
-	{
-		ft_print(nb);
+		g_buf[0] = value++ + '0';
+		ft_solve(n, 1, value);
 	}
 }

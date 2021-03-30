@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_alpha.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/28 21:26:43 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/03/30 23:43:45 by jihuhwan         ###   ########.fr       */
+/*   Created: 2021/03/30 15:27:17 by jihuhwan          #+#    #+#             */
+/*   Updated: 2021/03/30 23:12:37 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_putchar(char c)
+int		ft_str_is_alpha(char *str)
 {
-	write(1, &c, 1);
+	while (*str)
+	{
+		if (*str < 'A' || (*str > 'Z' && *str < 'a') || *str > 'z')
+		{
+			return (0);
+		}
+		str++;
+	}
+	return (1);
 }

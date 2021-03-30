@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
+/*   By: yeukim <yeukim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/28 21:26:43 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/03/30 23:43:45 by jihuhwan         ###   ########.fr       */
+/*   Created: 2021/03/28 20:20:54 by yeukim            #+#    #+#             */
+/*   Updated: 2021/03/28 20:52:39 by yeukim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+void	rush(int x, int y);
 
-void	ft_putchar(char c)
+int		main(void)
 {
-	write(1, &c, 1);
+	rush(5, 5);
+	return (0);
 }

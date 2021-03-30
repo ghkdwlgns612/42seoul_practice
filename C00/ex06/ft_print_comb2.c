@@ -5,57 +5,43 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/28 17:47:58 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/03/28 22:29:20 by jihuhwan         ###   ########.fr       */
+/*   Created: 2021/03/28 21:16:19 by jihuhwan          #+#    #+#             */
+/*   Updated: 2021/03/30 21:28:37 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print(char *first, char *second)
+void	ft_print(int nb1, int nb2)
 {
-	if ((first[0] == '9') && (first[1] == '8'))
-		break ;
-	write(1, first, 2);
-	write(1, " ", 1);
-	write(1, second, 2);
-	write(1, ",", 1);
+	char str[5];
+
+	str[0] = (nb1 / 10) + '0';
+	str[1] = (nb1 % 10) + '0';
+	str[2] = ' ';
+	str[3] = (nb2 / 10) + '0';
+	str[4] = (nb2 % 10) + '0';
+	write(1, &str, 5);
+	if ((nb1 != 98) || (nb2 != 99))
+	{
+		write(1, ", ", 1);
+	}
 }
 
 void	ft_print_comb2(void)
 {
-	char first[2];
-	char second[2];
+	int number[2];
 
-	first[0] = '0' - 1;
-	first[1] = '0' - 1;
-	second[0] = '0' - 1;
-	second[1] = '1' - 1;
-	while (first[0]++ <= '9')
+	number[0] = 0;
+	number[1] = 1;
+	while (number[0] <= 98)
 	{
-		while (first[1]++ <= '9')
+		while (number[1] <= 99)
 		{
-			while (second[0]++ <= '9')
-			{
-				while (second[1]++ <= '9')
-				{	
-					if ((first[0] == '9') && (first[1] == '8'))
- 						break ;
-					ft_print(first, second);
-				}
-				second[1] = '0';
-			}
-			second[0] = first[0];
-			second[1] = first[1] + 1;
+			ft_print(number[0], number[1]);
+			number[1]++;
 		}
-		first[1] = '0';
+		number[0]++;
+		number[1] = number[0] + 1;
 	}
-	write(1, "98 99", 5);
 }
-
-int		main(void)
-{
-	ft_print_comb2();
-	return (0);
-}
-
