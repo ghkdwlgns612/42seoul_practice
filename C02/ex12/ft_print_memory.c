@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 16:41:23 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/04/01 13:12:31 by jihuhwan         ###   ########.fr       */
+/*   Created: 2021/04/01 13:51:35 by jihuhwan          #+#    #+#             */
+/*   Updated: 2021/04/01 18:15:41 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdio.h>
 
-int		ft_str_is_numeric(char *str)
+void	*ft_print_memory(void *addr, unsigned int size)
 {
-	while (*str)
-	{
-		if (*str < '0' || *str > '9')
-		{
-			return (0);
-		}
-		str++;
-	}
-	return (1);
+	char 		*str;
+	long long	add;
+
+	str = (char *)addr;
+	add = (long long)addr;
+
+	printf("%lld\n", add);
+	write(1, str, 7);
+}
+
+int		main(void)
+{
+	ft_print_memory("asdfsdf", 7);
 }

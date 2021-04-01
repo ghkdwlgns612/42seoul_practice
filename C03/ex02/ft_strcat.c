@@ -1,26 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 16:41:23 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/04/01 13:12:31 by jihuhwan         ###   ########.fr       */
+/*   Created: 2021/03/30 17:58:01 by jihuhwan          #+#    #+#             */
+/*   Updated: 2021/04/01 22:16:00 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_str_is_numeric(char *str)
+int		ft_length(char *str)
 {
-	while (*str)
+	int index;
+
+	index = 0;
+	while (str[index] != '\0')
 	{
-		if (*str < '0' || *str > '9')
-		{
-			return (0);
-		}
-		str++;
+		index++;
 	}
-	return (1);
+	return (index);
+}
+
+char	*ft_strcat(char *dest, char *src)
+{
+	int length;
+	int end;
+	int index;
+
+	length = ft_length(dest);
+	index = 0;
+	end = length + ft_length(src);
+	while (length < end)
+	{
+		dest[length] = src[index];
+		length++;
+		index++;
+	}
+	dest[length] = '\0';
+	return (dest);
 }

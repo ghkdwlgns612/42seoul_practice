@@ -6,7 +6,7 @@
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 21:26:43 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/03/30 23:03:31 by jihuhwan         ###   ########.fr       */
+/*   Updated: 2021/04/01 16:42:54 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 char	*ft_strcpy(char *dest, char *src)
 {
-	char	*index;
+	int index;
 
-	index = dest;
-	while (*src != '\0')
+	index = 0;
+	while (src[index] != '\0')
 	{
-		*dest = *src;
-		dest++;
-		src++;
+		dest[index] = src[index];
+		index++;
 	}
-	*dest = '\0';
-	return (index);
+	dest[index] = '\0';
+	return (dest);
 }

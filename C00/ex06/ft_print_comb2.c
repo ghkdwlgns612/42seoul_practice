@@ -6,7 +6,7 @@
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/28 21:16:19 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/03/30 21:28:37 by jihuhwan         ###   ########.fr       */
+/*   Updated: 2021/03/31 01:36:32 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	ft_print(int nb1, int nb2)
 	write(1, &str, 5);
 	if ((nb1 != 98) || (nb2 != 99))
 	{
-		write(1, ", ", 1);
+		write(1, ", ", 2);
 	}
 }
 

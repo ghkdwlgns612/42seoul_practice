@@ -1,26 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 16:41:23 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/04/01 13:12:31 by jihuhwan         ###   ########.fr       */
+/*   Created: 2021/03/30 17:58:01 by jihuhwan          #+#    #+#             */
+/*   Updated: 2021/04/01 22:06:44 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_str_is_numeric(char *str)
+int		ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	while (*str)
+	unsigned int index;
+
+	index = 0;
+	while ((s1[index] == s2[index]) && (index < n))
 	{
-		if (*str < '0' || *str > '9')
-		{
+		if (s1[index] == '\0' && s2[index] == '\0')
 			return (0);
-		}
-		str++;
+		index++;
 	}
-	return (1);
+	if (s1[index] > s2[index])
+		return (1);
+	else if (s1[index] < s2[index])
+		return (-1);
+	else
+		return (0);
 }
