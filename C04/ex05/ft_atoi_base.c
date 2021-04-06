@@ -6,7 +6,7 @@
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:58:01 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/04/06 22:22:40 by jihuhwan         ###   ########.fr       */
+/*   Updated: 2021/04/07 05:40:45 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,6 @@ int		ft_chk(void)
 	return (1);
 }
 
-int		ft_trans(char a, int len)
-{
-	int index;
-
-	index = 0;
-	while (index < len)
-	{
-		if (g_base[index] == a)
-			return (index);
-		index++;
-	}
-	return (-1);
-}
-
 int		ft_front_chk(int len, char *str)
 {
 	int index;
@@ -57,7 +43,7 @@ int		ft_front_chk(int len, char *str)
 	index = 0;
 	g_minus = 1;
 	if (!ft_chk() || len < 2)
-		return (0);
+		return (-1);
 	while ((str[index] >= '\t' && str[index] <= '\r') ||
 			str[index] == ' ')
 		index++;
@@ -68,6 +54,20 @@ int		ft_front_chk(int len, char *str)
 		index++;
 	}
 	return (index);
+}
+
+int		ft_ret(char a)
+{
+	int index;
+
+	index = 0;
+	while (g_base[index] != '\0')
+	{
+		if (g_base[index] == a)
+			return (index);
+		index++;
+	}
+	return (-1);
 }
 
 int		ft_atoi_base(char *str, char *base)
@@ -83,11 +83,11 @@ int		ft_atoi_base(char *str, char *base)
 	while (g_base[length] != '\0')
 		length++;
 	flag = ft_front_chk(length, str);
-	if (flag == 0)
+	if (flag == -1)
 		return (0);
 	while (str[flag] != '\0')
 	{
-		index = ft_trans(str[flag], length);
+		index = ft_ret(str[flag]);
 		if (index == -1)
 			break ;
 		result *= length;
