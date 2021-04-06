@@ -1,37 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_rev_params.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/30 17:58:01 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/04/05 11:11:45 by jihuhwan         ###   ########.fr       */
+/*   Created: 2021/04/07 01:47:11 by jihuhwan          #+#    #+#             */
+/*   Updated: 2021/04/07 01:56:53 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_strncmp(char *s1, char *s2, unsigned int n)
+int		main(int argc, char **argv)
 {
-	unsigned int index;
+	int index1;
+	int index2;
 
-	index = 0;
-	while ((s1[index] != '\0' && s2[index] != '\0') && (n > 0))
+	index1 = 0;
+	index2 = argc - 1;
+	while (index2 > 0)
 	{
-		if (s1[index] != s2[index])
-			break ;
-		else
-		{
-			index++;
-			n--;
-		}
+		while (argv[index2][index1] != '\0')
+			write(1, &argv[index2][index1++], 1);
+		write(1, "\n", 1);
+		index2--;
+		index1 = 0;
 	}
-	if (n == 0)
-		return (0);
-	if (s1[index] > s2[index])
-		return (1);
-	else if (s1[index] < s2[index])
-		return (-1);
 	return (0);
 }

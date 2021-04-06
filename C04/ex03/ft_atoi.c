@@ -1,37 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:58:01 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/04/05 11:11:45 by jihuhwan         ###   ########.fr       */
+/*   Updated: 2021/04/05 15:30:34 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_strncmp(char *s1, char *s2, unsigned int n)
+int		ft_atoi(char *str)
 {
-	unsigned int index;
+	int num;
+	int index;
+	int minus;
 
+	num = 0;
 	index = 0;
-	while ((s1[index] != '\0' && s2[index] != '\0') && (n > 0))
+	minus = 1;
+	while (str[index] == '\t' || str[index] == '\n'
+			|| str[index] == '\v' || str[index] == '\f'
+			|| str[index] == '\r' || str[index] == ' ')
+		index++;
+	while (str[index] == '-' || str[index] == '+')
 	{
-		if (s1[index] != s2[index])
-			break ;
-		else
-		{
-			index++;
-			n--;
-		}
+		if (str[index] == '-')
+			minus *= (-1);
+		index++;
 	}
-	if (n == 0)
-		return (0);
-	if (s1[index] > s2[index])
-		return (1);
-	else if (s1[index] < s2[index])
-		return (-1);
-	return (0);
+	while (str[index] >= '0' && str[index] <= '9')
+	{
+		num *= 10;
+		num += (minus) * (str[index] - '0');
+		index++;
+	}
+	return (num);
 }

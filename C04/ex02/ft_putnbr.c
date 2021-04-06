@@ -1,37 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:58:01 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/04/05 11:11:45 by jihuhwan         ###   ########.fr       */
+/*   Updated: 2021/04/01 23:25:36 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_strncmp(char *s1, char *s2, unsigned int n)
+void	ft_print(int nb)
 {
-	unsigned int index;
+	char mod;
 
-	index = 0;
-	while ((s1[index] != '\0' && s2[index] != '\0') && (n > 0))
+	mod = (nb) % 10 + '0';
+	nb = (nb) / 10;
+	if (nb >= 10)
 	{
-		if (s1[index] != s2[index])
-			break ;
+		ft_print(nb);
+		write(1, &mod, 1);
+	}
+	else
+	{
+		nb = nb + '0';
+		if (nb == '0')
+			write(1, &mod, 1);
 		else
 		{
-			index++;
-			n--;
+			write(1, &nb, 1);
+			write(1, &mod, 1);
 		}
 	}
-	if (n == 0)
-		return (0);
-	if (s1[index] > s2[index])
-		return (1);
-	else if (s1[index] < s2[index])
-		return (-1);
-	return (0);
+}
+
+void	ft_except(void)
+{
+	write(1, "-", 1);
+	write(1, "2147483648", 10);
+}
+
+void	ft_putnbr(int nb)
+{
+	if (nb < 0)
+	{
+		if (nb == -2147483648)
+		{
+			ft_except();
+		}
+		else
+		{
+			write(1, "-", 1);
+			nb = nb * (-1);
+			ft_print(nb);
+		}
+	}
+	else
+	{
+		ft_print(nb);
+	}
 }
