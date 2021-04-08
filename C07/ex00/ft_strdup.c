@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/06 12:25:29 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/04/08 21:19:30 by jihuhwan         ###   ########.fr       */
+/*   Created: 2021/04/08 15:59:03 by jihuhwan          #+#    #+#             */
+/*   Updated: 2021/04/08 15:59:15 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
+#include <stdlib.h>
 
-int		ft_iterative_power(int nb, int power)
+char	*ft_strdup(char *src)
 {
-	int res;
+	int		len;
+	char	*ret;
 
-	res = 1;
-	if (power < 0)
-		return (0);
-	while (power > 0)
+	len = 0;
+	while (src[len] != '\0')
+		len++;
+	ret = (char *)malloc(sizeof(char) * len + 1);
+	ret[len] = 0;
+	while (--len >= 0)
 	{
-		res *= nb;
-		power--;
+		ret[len] = src[len];
 	}
-	return (res);
+	return (ret);
 }

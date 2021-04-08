@@ -6,7 +6,7 @@
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/30 17:58:01 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/04/06 19:15:17 by jihuhwan         ###   ########.fr       */
+/*   Updated: 2021/04/08 12:30:28 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,27 +53,21 @@ int		ft_length(void)
 
 void	ft_putnbr_base(int nbr, char *base)
 {
-	int length;
+	int			length;
+	long long	temp;
 
+	temp = nbr;
 	g_base = base;
 	length = ft_length();
 	if (length < 2 || !ft_chk())
 	{
 		return ;
 	}
-	if (nbr < 0)
+	if (temp < 0)
 	{
-		if (nbr == -2147483648)
-		{
-			write(1, "-2147483648", 11);
-			return ;
-		}
-		else
-		{
-			nbr *= -1;
-			write(1, "-", 1);
-		}
+		temp *= -1;
+		write(1, "-", 1);
 	}
-	ft_print(nbr / length, length);
-	write(1, &g_base[nbr % length], 1);
+	ft_print(temp / length, length);
+	write(1, &g_base[temp % length], 1);
 }

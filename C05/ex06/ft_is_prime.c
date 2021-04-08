@@ -6,31 +6,27 @@
 /*   By: jihuhwan <jihuhwan@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/06 18:54:27 by jihuhwan          #+#    #+#             */
-/*   Updated: 2021/04/06 21:28:37 by jihuhwan         ###   ########.fr       */
+/*   Updated: 2021/04/08 17:46:21 by jihuhwan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-int		ft_is_prime(int nb)
+int	ft_is_prime(int nb)
 {
 	int i;
-	int j;
+	int temp;
 
-	if (nb < 2)
+	i = 2;
+	temp = nb / 2;
+	if (nb <= 1)
 		return (0);
-	i = 1;
-	j = 1;
-	while (i < nb)
+	if (nb == 2 || nb == 3)
+		return (1);
+	while (i <= temp)
 	{
-		while (j < nb)
-		{
-			if (i * j == nb)
-				return (0);
-			j++;
-		}
-		i++;
-		j = i;
+		if ((nb % i++) == 0)
+			return (0);
 	}
 	return (1);
 }
